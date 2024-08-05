@@ -1,7 +1,7 @@
-package com.example.ishelt.controllers
+package com.example.ishelt.controllers.user
 
-import com.example.ishelt.data.service.UserService
-import com.example.ishelt.domain.models.User
+import com.example.ishelt.data.service.user.UserService
+import com.example.ishelt.domain.models.user.User
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.PostMapping
 import org.springframework.web.bind.annotation.RequestParam

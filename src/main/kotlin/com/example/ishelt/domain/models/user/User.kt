@@ -1,4 +1,4 @@
-package com.example.ishelt.domain.models
+package com.example.ishelt.domain.models.user
 
 import jakarta.persistence.Entity
 import jakarta.persistence.Id
@@ -7,9 +7,9 @@ import java.util.*
 
 @Entity
 @Table(name = "users")
-class User(
+open class User(
         @Id
-        val id: UUID,
-        val name: String,
-        val email: String
+        open var id: UUID,
+        open var name: String,
+        open var email: String
 )

@@ -1,9 +1,8 @@
-package com.example.ishelt.data.service
+package com.example.ishelt.data.service.user
 
-import com.example.ishelt.domain.models.User
-import com.example.ishelt.domain.repository.UserRepository
+import com.example.ishelt.domain.models.user.User
+import com.example.ishelt.domain.repository.user.UserRepository
 import org.springframework.stereotype.Service
-import org.springframework.web.bind.annotation.RequestParam
 import java.util.*
 
 @Service
