@@ -5,42 +5,43 @@ import com.example.ishelt.domain.models.user.User
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.PostMapping
 import org.springframework.web.bind.annotation.RequestParam
+import org.springframework.web.bind.annotation.RequestBody
 import org.springframework.web.bind.annotation.RestController
 import java.util.*
 
 @RestController
 class UserController(
-        private val userService: UserService
+        private val userService: UserService,
 ) {
     @GetMapping("/users")
     fun getUsers(): List<User> {
         return userService.getAllUsers()
     }
 
-    @PostMapping("/createUser")
+    @PostMapping("/create_user")
     fun createUser(
-            @RequestParam name: String,
-            @RequestParam email: String
+            @RequestBody name: String,
+            @RequestBody email: String,
     ): UUID {
         return userService.createUser(name, email)
     }
 
-    @PostMapping("/updateUser")
+    @PostMapping("/update_user")
     fun updateUser(
-            @RequestParam name: String,
-            @RequestParam newName: String?,
-            @RequestParam email: String?
+            @RequestBody name: String,
+            @RequestBody newName: String?,
+            @RequestBody email: String?,
     ): Boolean {
         return userService.updateUser(name, newName, email)
     }
 
-    @PostMapping("/deleteUser")
-    fun deleteUser(name: String) {
+    @PostMapping("/delete_user")
+    fun deleteUser(@RequestBody name: String) {
         userService.deleteUserByName(name)
     }
 
-    @GetMapping("/getUser")
-    fun getUser(name: String): Optional<User> {
+    @GetMapping("/get_user")
+    fun getUser(@RequestParam name: String): Optional<User> {
         return userService.getUserByName(name)
     }
 }
